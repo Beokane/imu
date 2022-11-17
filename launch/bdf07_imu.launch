@@ -1,0 +1,12 @@
+<launch>
+
+    <arg name="imu_topic" default="imu_data"/>
+    
+    <arg name="port" default="/dev/ttyUSB0"/>
+    <node pkg="bdf07_imu" type="bdf07_imu_node" name="bdf07_imu_node" required="true" output="screen" >
+        <param name="port" value="$(arg port)" />
+        <param name="baudrate" value="115200" />
+        <param name="frame_id" value="imu_link" />
+        <param name="topic" value="$(arg imu_topic)"/>
+    </node>
+</launch>
